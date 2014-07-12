@@ -38,6 +38,11 @@ if [ ! -d ${OPENSHIFT_DATA_DIR}themes ]; then
   mv ${dest_dir}/wp-content/themes ${OPENSHIFT_DATA_DIR}themes
 fi
 
+if [ ! -d ${OPENSHIFT_DATA_DIR}cache ]; then
+  mkdir ${OPENSHIFT_DATA_DIR}cache
+fi
+
+
 # Users can place their own plugins and themes into .openshift/ directory
 # inside their GIT repository.
 #
@@ -61,6 +66,7 @@ ln -sf ${OPENSHIFT_DATA_DIR}plugins   ${OPENSHIFT_REPO_DIR}php/wp-content/
 ln -sf ${OPENSHIFT_DATA_DIR}themes    ${OPENSHIFT_REPO_DIR}php/wp-content/
 ln -sf ${OPENSHIFT_DATA_DIR}languages    ${OPENSHIFT_REPO_DIR}php/wp-content/
 ln -sf ${OPENSHIFT_DATA_DIR}uploads   ${OPENSHIFT_REPO_DIR}php/wp-content/
+ln -sf ${OPENSHIFT_DATA_DIR}cache   ${OPENSHIFT_REPO_DIR}php/wp-content/
 
 # Copy the OpenShift wp-config.php file
 
